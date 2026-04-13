@@ -1,0 +1,80 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #534AB7;
+  --purple-light: #EEEDFE;
+  --purple-mid: #AFA9EC;
+  --bg: #ffffff;
+  --bg-2: #f5f4f9;
+  --bg-3: #eeedf5;
+  --border: rgba(0,0,0,0.1);
+  --text: #1a1a2e;
+  --text-2: #6b6a80;
+  --text-3: #9998aa;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --sidebar-w: 280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16151f;
+    --bg-2: #1f1e2d;
+    --bg-3: #28273a;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8e7f5;
+    --text-2: #9998b8;
+    --text-3: #66658a;
+    --purple-light: #2a2760;
+  }
+}
+
+html, body, #root { height: 100%; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea { font-family: inherit; outline: none; }
+a { color: inherit; text-decoration: none; }
+* { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+*::-webkit-scrollbar { width: 4px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.btn-primary {
+  background: var(--purple);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+  width: 100%;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.input-field {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+.input-field:focus { border-color: var(--purple); }
+.input-field::placeholder { color: var(--text-3); }
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: var(--purple-light);
+  color: var(--purple);
+  overflow: hidden;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
